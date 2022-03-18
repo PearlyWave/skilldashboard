@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fantasy Character Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=MedievalSharp&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="invitation">
+            <h1>Fantasy Character Creator</h1>
+            <h2>Greetings, Stranger!</h2>
+            <p>Create your own fantasy character by making these simple step-by-step decisions.</p>
+            <p>Once we start, each decision will be summarized in a panel on the right.</p>
+            <p>Enjoy & have fun!</p>
+            <button class="start">Let's Start!</button>
+        </div>
+        <div class="summary hidden">
+            <h2 class="summaryName"><span></span></h2>
+            <div class="summaryBasics">
+                <p class="summaryGender">Gender: <span></span></p>
+                <p class="summaryRace">Race: <span></span></p>
+                <p class="summaryClass">Class: <span></span></p>
+                <p>Level: 1</p>
+            </div>
+            <div class="summaryPortrait"> <img class="summaryPortrait hidden" src="">
+            </div>
+            <div class="summaryAttributes">
+                <p>编程: <span id="summaryStrength"></span></p>
+                <p>基础知识: <span id="summaryDexterity"></span></p>
+                <p>架构: <span id="summaryConstitution"></span></p>
+                <p>设计: <span id="summaryIntelligence"></span></p>
+                <p>职业技能: <span id="summaryCharisma"></span></p>
+                <p>专业领域: <span id="summaryWillpower"></span></p>
+            </div>
+        </div>
+        <div class="genderSelection hidden">
+            <h2>First choose your character's gender:</h2>
+            <button id="btnFemale" class="fas fa-venus gender female" title="Female"></button>
+            <button id="btnMale" class="fas fa-mars gender male" title="Male"></button>
+            <div class="genderSelected"></div>
+            <button class="resetGender fas fa-undo-alt hidden" title="Reset"></button>
+            <button class="genderForward fas fa-arrow-down hidden" title="Forward"></button>
+        </div>
+        <div class="raceSelection hidden">
+            <h2>Choose race:</h2>
+            <i class="race-info fas fa-info"></i>
+            <button id="human" class="charRace human" title="Human">Human</button>
+            <button id="elf" class="charRace elf" title="Elf">Elf</button>
+            <button id="dwarf" class="charRace dwarf" title="Dwarf">Dwarf</button>
+            <button id="halfling" class="charRace halfling" title="Halfling">Halfling</button>
+            <div class="raceSelected"></div>
+            <button class="resetRace fas fa-undo-alt hidden" title="Reset"></button>
+            <button class="raceForward fas fa-arrow-down hidden" title="Forward"></button>
+        </div>
+        <div class="nameSelection hidden">
+            <h2>Write your character's name:</h2>
+            <form action="index.html">
+                <input type="text" name="charName" id="inputName" class="inputName"><button id="submitName"
+                    class="submitName">Confirm</button>
+                <div class="nameSelected"></div>
+                <button class="resetName fas fa-undo-alt hidden" title="Reset"></i></button>
+                <button class="nameForward fas fa-arrow-down hidden" title="Forward"></button>
+            </form>
+        </div>
+        <div class="classSelection hidden">
+            <h2>Choose a class:</h2>
+            <i class="class-info fas fa-info"></i>
+            <button id="warrior" class="charClass warrior" title="Warrior">Warrior</button>
+            <button id="wizard" class="charClass wizard" title="Wizard">Wizard</button>
+            <button id="cleric" class="charClass cleric" title="Cleric">Cleric</button>
+            <button id="rogue" class="charClass rogue" title="Rogue">Rogue</button>
+            <div class="classSelected"></div>
+            <button class="resetClass fas fa-undo-alt hidden" title="Reset"></button>
+            <button class="classForward fas fa-arrow-down hidden" title="Forward"></button>
+        </div>
+        <div class="portraitSelection hidden">
+            <h2>Choose a portrait:</h2>
+            <div id="portraits" class="portraits">
+                <button id="portrait1"><img src=''></button>
+                <button id="portrait2"><img src=''></button>
+                <button id="portrait3"><img src=''></button>
+                <button id="portrait4"><img src=''></button>
+            </div>
+            <button class="resetPortrait fas fa-undo-alt hidden" title="Reset"></button>
+            <button class="portraitForward fas fa-arrow-down hidden" title="Forward"></button>
+        </div>
+        <div class="attributeSelection hidden">
+            <h2>Select your character's attributes:</h2>
+            <p class="description">Shape your character by spending your free points on the attributes. You can also
+                lower an attribute value to gain some extra points. The highest value is 20, and the lowest value is 3
+                (although the race and class selection will affect this value).</p>
+            <i class="attribute-info fas fa-info"></i>
+            <div class="statistics">
+                <div class="attribute">
+                    <p>编程</p>
+                    <button id="strPlus" class="plus">+</button>
+                    <span id="strValue">10</span>
+                    <button id="strMinus" class="minus">-</button>
+                </div>
+                <div class="attribute">
+                    <p>基础知识</p>
+                    <button id="dexPlus" class="plus">+</button>
+                    <span id="dexValue">10</span>
+                    <button id="dexMinus" class="minus">-</button>
+                </div>
+                <div class="attribute">
+                    <p>架构</p>
+                    <button id="conPlus" class="plus">+</button>
+                    <span id="conValue">10</span>
+                    <button id="conMinus" class="minus">-</button>
+                </div>
+                <div class="attribute">
+                    <p>设计</p>
+                    <button id="intPlus" class="plus">+</button>
+                    <span id="intValue">10</span>
+                    <button id="intMinus" class="minus">-</button>
+                </div>
+                <div class="attribute">
+                    <p>职业技能</p>
+                    <button id="chaPlus" class="plus">+</button>
+                    <span id="chaValue">10</span>
+                    <button id="chaMinus" class="minus">-</button>
+                </div>
+                <div class="attribute">
+                    <p>专业领域</p>
+                    <button id="willPlus" class="plus">+</button>
+                    <span id="willValue">10</span>
+                    <button id="willMinus" class="minus">-</button>
+                </div>
+            </div>
+            <p class="pointsLeft">Points left: <span>5</span></p>
+            <button class="resetAttributes fas fa-undo-alt" title="Reset"></button>
+            <button class="attributeForward fas fa-arrow-down" title="Forward"></button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="app.js"></script>
+    <script src="reset.js"></script>
+    <script src="forward.js"></script>
+</body>
+
+</html>

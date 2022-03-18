@@ -1,3 +1,3 @@
 # skilldashboard
 
-11
+open index.html
